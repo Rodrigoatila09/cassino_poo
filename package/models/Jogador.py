@@ -1,10 +1,10 @@
 class Jogador():
 
 
-    def __init__(self, nome="", cpf=""):
+    def __init__(self, nome="",cpf = ""):
         self.nome = nome
-        self.cpf = cpf
-        self.dinheiro = 100
+        self._cpf = cpf
+        self.__dinheiro = 100
         self.saldo = 0
 
     def nomeJogador(self):
