@@ -36,14 +36,30 @@ class Roleta(Maquina):
         self.numerosPretos = [2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36]
     
     def jogar(self):
-        numeroSortedo = random.randint(0,36)     
+        if(self.debitar_fichas()):   
+                inciarJogo = input("Deseja tentar a sorte?\n (S) | (N)").upper()
+                if(inciarJogo =="S"):
+                    escolherNumero = input("Muito bem!! Agora você deve escolher entre | (P) - Números Pretos | \n " \
+                    " | (V) - Números Vermelhos |").upper()
+                    numeroSorteado = random.randint(0,36)     
+
+                    if(numeroSorteado == 0): 
+                        print(f"O numero sorteado foi o 0 | Cor VERDE HAHA\n")
+                        print("QUe azar!! Você perdeu tudo 😹")
+                    if(escolherNumero == "P" and escolherNumero in self.numerosPretos):
+                        print("Parabéns, você ganhou!!")
+                        self.saldofichas += 5
+                    if(escolherNumero in self.numerosVermelhos):
+                        print("Parabéns, você ganhou!!")    
+                            
+        
 
 
 
 class CacaNiquel(Maquina):
     
-        def __init__(self,nomeJogador,saldoFichas,statusCompra):
-            super().__init__(nomeJogador,saldoFichas, statusCompra)
+        def __init__(self,nomeJogador,saldoFichas):
+            super().__init__(nomeJogador,saldoFichas)
             self.arrayFrutas  = ["🍒","🍋","🍓","💀"]
 
         def jogar(self):
@@ -53,7 +69,18 @@ class CacaNiquel(Maquina):
                 if(inciarJogo =="S"):
                     print("Aguarde enquanto tiramos seu dinhei-... Tiramos sua sorte! 😸")
                     time.sleep(3)
-                    print(f"Sua sorte foi: {sorteador}")
+                    if len(set(sorteador)) == 1:
+                        print(f"Sua sorte foi: {sorteador}\n")
+                        print("🎉|JackPot|🎉\n Tirou sorte grande! " )
+                        self.saldofichas += (self.precoMaquina + 15)
+
+                    elif len(set(sorteador)) == 2:
+                        print(f"Sua sorte foi: {sorteador}\n")
+                        print("Quase Conseguiu 😼")
+
+                    else:
+                        print(f"Sua sorte foi: {sorteador}\n")
+                        print("Se deu mal amigão!!")
                     
             elif(self.statusCompra is False):
                 print("Você não tem fichas suficientes!")
