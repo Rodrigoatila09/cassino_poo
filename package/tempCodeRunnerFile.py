@@ -1,1 +1,1 @@
-Comprar.testeSaudacoes("")
+is_vendedor.comprarFichas()

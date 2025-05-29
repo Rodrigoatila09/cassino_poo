@@ -7,6 +7,13 @@ class Jogador():
         self.__dinheiro = 100
         self.saldo = 0
 
+
+    def getMoney(self):
+        return self.__dinheiro
+
+    def setMoney(self,valor):
+        self.__dinheiro = valor
+
     def nomeJogador(self):
         inputNome = input("Digite seu nome:\n")
         self.nome = inputNome
