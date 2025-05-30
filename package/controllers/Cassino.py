@@ -27,7 +27,7 @@ class Cassino:
                 else:
                     print(f"Saldo atual: {self.jogador.saldoFichas} fichas")
             elif escolha == "5":
-                print("Obrigado por visitar o cassino! Até logo...")
+                print("Obrigado por visitar o cassino! Até logo!")
                 break
             else:
                 print("Opção inválida. Tente novamente.")
