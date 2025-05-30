@@ -4,7 +4,7 @@ from abc import ABC, abstractmethod
 
 class Maquina(ABC):
 
-    def __init__(self,nomeJogador ="",saldoFichas="", preco="", statusCompra= ""):
+    def __init__(self,nomeJogador ="",saldoFichas=""):
         self.nome= nomeJogador
         self.saldofichas = saldoFichas
         self.precoMaquina = 20
@@ -20,13 +20,15 @@ class Maquina(ABC):
                 self.statusCompra = True
                 self.saldofichas -= self.precoMaquina
                 print(" Compra aprovada ✔ \n  ✨ QUE A SORTE ESTEJA SEMPRE COM VOCÊ ✨")
+                return True
             elif(inputComprar and self.saldofichas < self.precoMaquina):
                 self.statusCompra = False
                 print("Infelizmente você não têm fichas o suficiente para jogar\n Você pode comprar mais com algum dos nossos vendedores.")
+                return False
         else:
             self.statusCompra = None
-            print("O jogador não existe")
-
+            print("O jogador não existe")   
+            return False
 
 class Roleta(Maquina):
       
@@ -46,11 +48,12 @@ class Roleta(Maquina):
                     if(numeroSorteado == 0): 
                         print(f"O numero sorteado foi o 0 | Cor VERDE HAHA\n")
                         print("QUe azar!! Você perdeu tudo 😹")
-                    if(escolherNumero == "P" and escolherNumero in self.numerosPretos):
-                        print("Parabéns, você ganhou!!")
+                    if(escolherNumero == "P" and numeroSorteado in self.numerosPretos):
+                        print(f"O número sorteado foi: {numeroSorteado}\n Parabéns, você ganhou!!")
                         self.saldofichas += 5
-                    if(escolherNumero in self.numerosVermelhos):
-                        print("Parabéns, você ganhou!!")    
+                    if(escolherNumero == "V" and numeroSorteado in self.numerosVermelhos):
+                        print(f"O número sorteado foi: {numeroSorteado}\n Parabéns, você ganhou!!")   
+                        self.saldofichas += 5 
                             
         
 
@@ -93,5 +96,3 @@ class CacaNiquel(Maquina):
                  print("Oops, algum erro inesperado aconteceu")
         
                  
-testeCacaniquel = CacaNiquel
-testeCacaniquel.jogoCacaNiquel()

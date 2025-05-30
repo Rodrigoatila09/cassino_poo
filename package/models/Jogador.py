@@ -1,3 +1,4 @@
+
 class Jogador():
 
 
@@ -5,7 +6,7 @@ class Jogador():
         self.nome = nome
         self._cpf = cpf
         self.__dinheiro = 100
-        self.saldo = 0
+        self.saldoFichas = 0
 
 
     def getMoney(self):

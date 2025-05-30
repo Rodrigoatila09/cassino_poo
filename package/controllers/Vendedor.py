@@ -13,9 +13,9 @@ class Vendedor ():
             fichasPedidas = int(input("Muito bem!\n Quantas fichas voce deseja?\n "))
             precoFInal = 5 * fichasPedidas
             if(self.jogador.getMoney() >= precoFInal):
-                self.jogador.saldo += fichasPedidas
+                self.jogador.saldoFichas += fichasPedidas
                 self.jogador.setMoney(self.jogador.getMoney() - precoFInal)
-                print(f"Fichas compradas com sucesso! | Saldo atual : {self.jogador.saldo} \n")
+                print(f"Fichas compradas com sucesso! | Saldo atual : {self.jogador.saldoFichas} \n")
                 print(f"Você ainda têm : {self.jogador.getMoney()}")
             else:
                 print("Você está liso amigão!")
