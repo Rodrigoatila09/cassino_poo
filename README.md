@@ -53,5 +53,4 @@ Implementação de um sistema de cassino em Python utilizando o paradigma de Ori
 5. **Composição**:
    - `Vendedor` compõe `Jogador` para realizar transações
    - `Cassino` contém múltiplas máquinas de jogo
-
-## Estrutura do Repositório
+----------
